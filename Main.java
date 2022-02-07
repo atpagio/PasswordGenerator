@@ -9,14 +9,10 @@ class Main {
     int[] mixedLetInts=new int[1000];
     int[] mixedLetNumInts=new int[1000];
     int[] allCharsInts=new int[1000];
-
-    //Create five different character arrays. Use the names given below. Populate each char array using the appropriate integer array and create characters based on those values. You must use a loop to do this. Note: char upperA=(char)65;
-    char[] upperWhat=new char[25];
-    for()
-
+    
     //lowercase password
-    File lower=new File("Lower.txt");
-    PrintWriter outFile = new PrintWriter(lower);
+    File lowerTxt=new File("Lower.txt");
+    PrintWriter outFile = new PrintWriter(lowerTxt);
     for(int i=0;i<1000;i++)
       {
         outFile.print((int)(Math.random()*26)+97);
@@ -24,7 +20,7 @@ class Main {
       }
     outFile.close();
     //reading
-    Scanner inputFile1=new Scanner(lower).useDelimiter(",");
+    Scanner inputFile1=new Scanner(lowerTxt).useDelimiter(",");
     while(inputFile1.hasNext())
     {
       for(int i=0;i<1000;i++)
@@ -33,10 +29,10 @@ class Main {
       }
     }
     inputFile1.close();
-
+    
     //uppercase letters
-    File upper=new File("Upper.txt");
-    PrintWriter outFile2 = new PrintWriter(upper);
+    File upperTxt=new File("Upper.txt");
+    PrintWriter outFile2 = new PrintWriter(upperTxt);
     for(int i=0;i<1000;i++)
       {
         outFile2.print((int)(Math.random()*26)+65);
@@ -44,7 +40,7 @@ class Main {
       }
     outFile2.close();
     //reading
-    Scanner inputFile2=new Scanner(upper).useDelimiter(",");
+    Scanner inputFile2=new Scanner(upperTxt).useDelimiter(",");
     while(inputFile2.hasNext())
     {
       for(int i=0;i<1000;i++)
@@ -130,6 +126,149 @@ class Main {
       }
     }
     inputFile5.close();
+
+    //to characters
+    char[] upper=new char[1000];
+    for(int temp:upperInts)
+      {
+        upper[temp]=(char)temp;
+      }
+    char[] lower=new char[1000];
+    for(int temp:lowerInts)
+      {
+        lower[temp]=(char)temp;
+      }
+    char[] mixed=new char[1000];
+    for(int temp:mixedLetInts)
+      {
+        mixed[temp]=(char)temp;
+      }
+    char[] mixedNum=new char[1000];
+    for(int temp:mixedLetNumInts)
+      {
+        mixedNum[temp]=(char)temp;
+      }
+    char[] allChars=new char[1000];
+    for(int temp:allCharsInts)
+      {
+        allChars[temp]=(char)temp;
+      }
+
+
+    System.out.println("Welcome to the password generator, would you like: \n\n1. All lowercase\n2. All uppercase\n3. Uppercase and lowercase\n4. Uppercase, lowercase, and numbers\n5. Uppercase, lowercase, numbers, and symbols\n0. Exit\n\nPlease enter 1, 2, 3, 4, 5, or 0 to leave.");
+    Scanner it=new Scanner(System.in);
+    int put=it.nextInt();
+    while(put==1)
+    {
+      //upperpw
+    File upperPass=new File("Upperpw.txt");
+    PrintWriter outUpPw = new PrintWriter(upperPass);
+    int count=0;
+    for(int i:upperInts)
+    {
+      outUpPw.print((char)i);
+      count++;
+      if(count==8)
+      {
+        outUpPw.println();
+        count=0;
+      }
+    }
+    outUpPw.close();
+    System.out.println("Would you like another?\nPress 1,2,3,4,5, or 0 to leave.");
+    put=it.nextInt();
+    } 
+
+
+    while (put==2)
+    {
+      //lowerpw
+    File lowerPass=new File("Lowerpw.txt");
+    PrintWriter outLoPw = new PrintWriter(lowerPass);
+    int count=0;
+    for(int i:lowerInts)
+    {
+      outLoPw.print((char)i);
+      count++;
+      if(count==8)
+      {
+        outLoPw.println();
+        count=0;
+      }
+    }
+    outLoPw.close();
+    System.out.println("Would you like another?\nPress 1,2,3,4,5, or 0 to leave.");
+    put=it.nextInt();
+    }  
+
+
+    while(put==3)
+    {
+      //mixed letterpw
+    File mixedPass=new File("Mixedpw.txt");
+    PrintWriter outMiPw = new PrintWriter(mixedPass);
+    int count=0;
+    for(int i:mixedLetInts)
+    {
+      outMiPw.print((char)i);
+      count++;
+      if(count==8)
+      {
+        outMiPw.println();
+        count=0;
+      }
+    }
+    outMiPw.close();
+    System.out.println("Would you like another?\nPress 1,2,3,4,5, or 0 to leave.");
+    put=it.nextInt();
+    } 
+    
+    while(put==4)
+    {
+      //mixed numpw
+    File mixedNumPass=new File("MixedNumpw.txt");
+    PrintWriter outMiNuPw = new PrintWriter(mixedNumPass);
+    int count=0;
+    for(int i:mixedLetNumInts)
+    {
+      outMiNuPw.print((char)i);
+      count++;
+      if(count==8)
+      {
+        outMiNuPw.println();
+        count=0;
+      }
+    }
+    outMiNuPw.close();
+    System.out.println("Would you like another?\nPress 1,2,3,4,5, or 0 to leave.");
+    put=it.nextInt();
+    } 
+
+    while(put==5)
+    {
+      //all charspw
+    File allPass=new File("AllCharspw.txt");
+    PrintWriter outAllPw = new PrintWriter(allPass);
+    int count=0;
+    for(int i:allCharsInts)
+    {
+      outAllPw.print((char)i);
+      count++;
+      if(count==8)
+      {
+        outAllPw.println();
+        count=0;
+      }
+    }
+    outAllPw.close();
+    System.out.println("Would you like another?\nPress 1,2,3,4,5, or 0 to leave.");
+    put=it.nextInt();
+    } 
+    if(put==0) 
+    {
+      System.out.println("\nGoodbye!");
+    }
+
 
   }
 }
